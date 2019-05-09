@@ -4,8 +4,19 @@
   <title>Example Caliper App</title>
 </head>
 <body>
-  <div id='root'></div>
+<div id='root'></div>
 </body>
+
+
+<script type="text/javascript">
+    <%
+     js_settings = {
+      apiUrl: api_url
+     }
+  %>
+    window.DEFAULT_SETTINGS = <%= js_settings.to_json %>;
+</script>
+
 
 <% if settings.use_hot_load %>
   <script src="<%= settings.hot_load_url %>"></script>

@@ -1,11 +1,5 @@
 require 'sinatra'
-
-if ENV['APP_ENV'] == 'production'
-  set :environment, 'production'
-end
-
-set :root, 'lib/app'
-set :server, 'puma'
+require 'json'
 
 if settings.development?
   set :use_hot_load, true
@@ -14,8 +8,15 @@ else
   set :use_hot_load, false
 end
 
+def api_url
+  #request.env["HTTP_HOST"]
+  "/api/producer"
+end
 
+# root route to setup front-end client app
 get '/' do
   render :erb, :index
 end
 
+# All Caliper event creation examples are here
+require_relative 'app/api/producer'
