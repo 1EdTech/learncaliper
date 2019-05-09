@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Example Caliper App</title>
+</head>
+<body>
+  <div id='root'></div>
+</body>
+
+<% if settings.use_hot_load %>
+  <script src="<%= settings.hot_load_url %>"></script>
+<% else %>
+  <script src="/bundle.js"></script>
+<% end %>
+</html>
