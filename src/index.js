@@ -3,13 +3,13 @@ import { render } from 'react-dom';
 import { Router, Link } from "@reach/router"
 
 import App from './components/App';
-import Send from './components/Send';
+import SendEvents from './components/send/SendEvents';
 
 render(
 
         <Router>
             <App path="/" name='Caliper' />
-            <Send path="/send" />
+            <SendEvents path="/send" />
         </Router>, document.getElementById('root')
 );
 
