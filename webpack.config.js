@@ -2,9 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: [
-    './src/index'
-  ],
+  entry: {
+    main: './src/index'
+  },
   module: {
     rules: [
       { test: /\.js?$/,
@@ -18,13 +18,15 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '/lib/app/public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: 'http://localhost:8080/'
   },
   devtool: 'cheap-eval-source-map',
   devServer: {
     contentBase: './lib/app/views/',
     hot: true,
-    port: 8080
+    port: 8080,
+    headers: {"Access-Control-Allow-Origin": "*"},
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),

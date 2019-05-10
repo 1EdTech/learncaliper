@@ -6,7 +6,6 @@ import CredentialStore from "../stores/CredentialStore"
 export class Credentials extends Component {
     constructor(props) {
         super(props);
-        console.log("initial state: ", CredentialStore.getState());
         this.state = CredentialStore.getState();
 
         this.handleChange = this.handleChange.bind(this);
