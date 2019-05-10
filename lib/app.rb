@@ -14,7 +14,9 @@ def api_url
 end
 
 # root route to setup front-end client app
-get '/' do
+# This will match all routes except the API routes
+# This allows the React client app to load and handle the routing
+get %r{^(?!/(api))} do
   render :erb, :index
 end
 
