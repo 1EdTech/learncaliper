@@ -10,7 +10,7 @@ const Header = () => {
                 <h1>Caliper Example App</h1>
                 <nav>
                     <Link to="/">Home</Link> |{" "}
-                    <Link to="/send">Send Events</Link>
+                    <Link to="/sendevents">Send Events</Link>
                 </nav>
             </div>
     );

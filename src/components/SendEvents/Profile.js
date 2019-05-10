@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import * as PropTypes from "prop-types"
 
-export class SendProfile extends Component {
+export class Profile extends Component {
 
     constructor(props) {
         super(props);
@@ -37,4 +37,4 @@ export class SendProfile extends Component {
     }
 }
 
-SendProfile.propTypes = {profileName: PropTypes.any}
+Profile.propTypes = {profileName: PropTypes.any}
