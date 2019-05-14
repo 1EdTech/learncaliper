@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import * as PropTypes from "prop-types"
 import CodeSampleActions from "../../actions/CodeSampleActions"
 import {Highlighter} from "../util/Highlighter"
+import Button from '@material-ui/core/Button';
 
 export class Profile extends Component {
 
@@ -34,7 +35,9 @@ export class Profile extends Component {
                 <li>View Event
                     <ul>
                         <li>
-                            <button name="ViewEvent" className="btn btn-secondary" onClick={this.sendEvent}>Viewed</button>
+                            <Button name="ViewEvent"
+                                    variant="contained" color="primary"
+                                    onClick={this.sendEvent}>Viewed</Button>
                         </li>
                     </ul>
                 </li>
