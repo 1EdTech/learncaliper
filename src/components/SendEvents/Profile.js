@@ -15,7 +15,7 @@ export class Profile extends Component {
     }
 
     sendEvent(event) {
-        CodeSampleActions.fetchCode("code", this.updateCode);
+        CodeSampleActions.fetchCode("reading_view_event", this.updateCode);
         event.preventDefault();
     }
 
@@ -26,6 +26,7 @@ export class Profile extends Component {
     render() {
         return <div>
             <h3>{this.props.profileName}</h3>
+            <p><a target="new" href="https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#readingProfile">Documentation for this profile.</a></p>
             <ul>
                 <li>Navigation Event
                     <ul>

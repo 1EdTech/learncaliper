@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'json'
+require_relative  'models/models'
+require_relative  'events/events'
 
 if settings.development?
   set :use_hot_load, true
@@ -11,6 +13,10 @@ end
 def api_url
   #request.env["HTTP_HOST"]
   "/api/"
+end
+
+def pretty_json(json)
+  JSON.pretty_generate(JSON.parse(json))
 end
 
 # root route to setup front-end client app

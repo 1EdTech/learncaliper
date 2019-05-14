@@ -21,7 +21,7 @@ export class Highlighter extends Component {
         // a random number on there makes sure the "prettyprinted" class is removed
         // by creating a whole new element each time.
         return <pre className={"prettyprint " + Math.random()}>
-            <code className="lang-ruby">{this.props.code}</code>
+            <code className="lang-json">{this.props.code}</code>
         </pre>
     }
 }
