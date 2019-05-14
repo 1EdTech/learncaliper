@@ -1,7 +1,6 @@
 import React, {Component} from "react"
 import CredentialActions from "../actions/CredentialActions"
 import CredentialStore from "../stores/CredentialStore"
-// var CredentialActions = import("../actions/CredentialActions")
 
 export class Credentials extends Component {
     constructor(props) {

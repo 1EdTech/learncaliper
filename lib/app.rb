@@ -10,7 +10,7 @@ end
 
 def api_url
   #request.env["HTTP_HOST"]
-  "/api/producer"
+  "/api/"
 end
 
 # root route to setup front-end client app
@@ -22,3 +22,4 @@ end
 
 # All Caliper event creation examples are here
 require_relative 'app/api/producer'
+require_relative 'app/api/meta'

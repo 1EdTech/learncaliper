@@ -1,19 +1,25 @@
 import React, {Component} from "react"
 import * as PropTypes from "prop-types"
+import CodeSampleActions from "../../actions/CodeSampleActions"
+import {Highlighter} from "../util/Highlighter"
 
 export class Profile extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {code: null};
 
         this.sendEvent = this.sendEvent.bind(this);
+        this.updateCode = this.updateCode.bind(this);
     }
 
     sendEvent(event) {
-        // this.setState({[event.target.id]: event.target.value})
-        console.log("Sending!", event.target.name);
+        CodeSampleActions.fetchCode("code", this.updateCode);
         event.preventDefault();
+    }
+
+    updateCode(text) {
+        this.setState({code: text})
     }
 
     render() {
@@ -33,6 +39,7 @@ export class Profile extends Component {
                     </ul>
                 </li>
             </ul>
+            <Highlighter code={this.state.code}/>
         </div>
     }
 }
