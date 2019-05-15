@@ -1,0 +1,103 @@
+{
+  "profiles": [
+    {
+      "name": "Reading Profile",
+      "id": "readingProfile",
+      "docUrl": "https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#readingProfile",
+      "events": [
+        {
+          "name": "NavigationEvent",
+          "docUrl": "https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#navigationEvent",
+          "actions":[
+            {
+              "name": "NavigatedTo",
+              "conformance": "REQUIRED"
+            },
+            {
+              "name": "Viewed",
+              "conformance": "REQUIRED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Assessment Profile",
+      "id": "assessmentProfile",
+      "docUrl": "https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#assessmentProfile",
+      "events": [
+        {
+          "name": "AssessmentEvent",
+          "docUrl": "https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#assessmentEvent",
+          "actions": [
+            {
+              "name": "Started",
+              "required": true
+            },
+            {
+              "name": "Paused",
+              "required": false
+            },
+            {
+              "name": "Resumed",
+              "required": false
+            },
+            {
+              "name": "Restarted",
+              "required": false
+            },
+            {
+              "name": "Reset",
+              "required": false
+            },
+            {
+              "name": "Submitted",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "AssessmentItemEvent",
+          "docUrl": "https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#assessmentItemEvent",
+          "actions": [
+            {
+              "name": "Started",
+              "required": false
+            },
+            {
+              "name": "Skipped",
+              "required": false
+            },
+            {
+              "name": "Completed",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "NavigationEvent",
+          "docUrl": "https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#navigationEvent",
+          "actions": [
+            {
+              "name": "NavigatedTo",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "ViewEvent",
+          "docUrl": "https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#viewEvent",
+          "actions": [
+            {
+              "name": "Viewed",
+              "required": false
+            }
+          ]
+        }
+      ]
+    }
+
+  ]
+}
+
+

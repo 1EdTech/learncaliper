@@ -15,14 +15,22 @@ export class Highlighter extends Component {
 
     render() {
         if(!this.props.code) return "";
+        let format = "lang-json"
+
+        if(this.props.format === "ruby"){
+            format = "lang-ruby"
+        }
 
         // the highlighter manually adds a "prettyprinted" class to the <pre> tag
         // and react only updates the body of the element by default. So adding
         // a random number on there makes sure the "prettyprinted" class is removed
         // by creating a whole new element each time.
-        return <pre className={"prettyprint " + Math.random()}>
-            <code className="lang-json">{this.props.code}</code>
-        </pre>
+        return <div style={{minWidth: '500px', maxWidth: '700px', maxHeight: '500px', overflow: 'auto', padding: '10px'}}>
+            <h3>{this.props.format}</h3>
+            <pre className={"prettyprint " + Math.random()}>
+                <code className={format}>{this.props.code}</code>
+            </pre>
+        </div>
     }
 }
 

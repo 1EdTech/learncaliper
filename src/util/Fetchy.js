@@ -34,7 +34,7 @@ class Fetchy {
     }
 
 
-    static get(url = ``){
+    static get(url = ``, format="json"){
        return fetch(url, {
             method: "GET",
             mode: "cors",
@@ -46,7 +46,13 @@ class Fetchy {
             referrer: "no-referrer",
        })
                .then(this.handleErrors)
-               .then(response => response.text())
+               .then(response => {
+                   if(format === "json"){
+                       return response.json()
+                   } else {
+                       return response.text()
+                   }
+               })
     }
 
 

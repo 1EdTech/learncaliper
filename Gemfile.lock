@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/IMSGlobal/caliper-ruby.git
-  revision: 16256300ecdf13bd2438ffc166b1a93f240b9839
+  revision: 50a9fd0c947063bf35f2558c0ea6553bd22e4413
   branch: develop
   specs:
     ims_caliper (1.1)
