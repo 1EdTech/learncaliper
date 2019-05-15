@@ -4,6 +4,8 @@ import CodeSampleActions from "../../actions/CodeSampleActions"
 import {Highlighter} from "../util/Highlighter"
 import Grid from "@material-ui/core/Grid"
 import {Action} from "./Action"
+import Link from "@material-ui/core/Link"
+import LaunchIcon from "@material-ui/icons/Launch"
 
 export class Event extends Component {
     constructor(props) {
@@ -32,7 +34,8 @@ export class Event extends Component {
 
     render() {
         return <div>
-            <p>{this.props.event.name} (<a target="new" href={this.props.event.docUrl}>Documentation</a>)</p>
+            <h4>{this.props.event.name} (<Link href={this.props.event.docUrl} target="_blank">Documentation<LaunchIcon style={{fontSize: 'small'}}/></Link>)</h4>
+
                    <ul>
                        {this.props.event.actions.map((action, index) => {
                            return <Action action={action} fetchCode={this.fetchCode} key={index}/>

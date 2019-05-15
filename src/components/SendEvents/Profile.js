@@ -6,6 +6,8 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails"
 import Typography from "@material-ui/core/Typography"
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {Event} from "./Event"
+import Link from "@material-ui/core/Link"
+import LaunchIcon from "@material-ui/icons/Launch"
 
 export class Profile extends Component {
 
@@ -16,12 +18,11 @@ export class Profile extends Component {
     render() {
         return <div>
             <ExpansionPanel TransitionProps={{unmountOnExit: true}}>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                    <Typography>{this.props.profile.name}</Typography>
+                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                    <h3>{this.props.profile.name} (<Link href={this.props.profile.docUrl} target="_blank">Documentation<LaunchIcon style={{fontSize: 'small'}} /></Link>)</h3>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <div>
-                        <a target="new" href={this.props.profile.docUrl}>Documentation for this profile.</a>
                             {this.props.profile.events.map((calEvent, index) => {
                                 return <Event event={calEvent} profileName={this.props.profile.id} key={index}/>
                             })}
