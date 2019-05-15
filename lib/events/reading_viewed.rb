@@ -8,7 +8,7 @@ module Events
 
     # Create an event of the correct type (which uses the correct default action)
     event = Caliper::Events::ViewEvent.new
-    event.eventTime = Time.now.iso8601
+    event.eventTime = Time.now.utc.iso8601
 
     # set the user by translating your user object to a Caliper Person
     my_app_user = User.current_user

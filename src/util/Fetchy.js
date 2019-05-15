@@ -47,19 +47,21 @@ class Fetchy {
        })
                .then(this.handleErrors)
                .then(response => {
-                   if(format === "json"){
-                       return response.json()
-                   } else {
-                       return response.text()
-                   }
-               })
+                    if (format === "json") {
+                        return response.json()
+                    } else if (format === "text") {
+                        return response.text()
+                    } else {
+                        return response;
+                    }
+                })
     }
 
 
     // post(`http://example.com/answer`, {answer: 42})
     //   .then(data => console.log(JSON.stringify(data))) // JSON-string from `response.json()` call
     //   .catch(error => console.error(error));
-    static post(url = ``, data = {}) {
+    static post(url = ``, data = {}, format='json') {
         // Default options are marked with *
         return fetch(url, {
             method: "POST",
@@ -74,8 +76,16 @@ class Fetchy {
             referrer: "no-referrer",
             body: JSON.stringify(data),
         })
-                .then(handleErrors)
-                .then(response => response.json());
+                .then(this.handleErrors)
+                .then(response => {
+                    if (format === "json") {
+                        return response.json()
+                    } else if (format === "text") {
+                        return response.text()
+                    } else {
+                        return response;
+                    }
+                })
     }
 
 }

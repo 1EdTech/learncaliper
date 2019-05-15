@@ -9,7 +9,7 @@ const Events = () => {
     return (
             <div>
                 <Header/>
-                {/*<Credentials/>*/}
+                <Credentials/>
                 {/*<div>Context/User info</div>*/}
                 <Profiles/>
             </div>

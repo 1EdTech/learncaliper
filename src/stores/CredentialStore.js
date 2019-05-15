@@ -10,6 +10,15 @@ class CredentialStore {
         this.bindActions(CredentialActions);
     }
 
+    static getCurrentCredentials(){
+        let state = this.getState();
+        if(state.usingLocalCredentials){
+            return state.localCredentials;
+        } else {
+            return state.remoteCredentials;
+        }
+    }
+
     onUpdateLocalCredentials(credentials) {
         this.localCredentials = credentials;
     }

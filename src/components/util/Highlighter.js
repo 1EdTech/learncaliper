@@ -26,7 +26,7 @@ export class Highlighter extends Component {
         // a random number on there makes sure the "prettyprinted" class is removed
         // by creating a whole new element each time.
         return <div style={{minWidth: '500px', maxWidth: '700px', maxHeight: '500px', overflow: 'auto', padding: '10px'}}>
-            <h3>{this.props.format}</h3>
+            <h3>{this.props.title}</h3>
             <pre className={"prettyprint " + Math.random()}>
                 <code className={format}>{this.props.code}</code>
             </pre>
@@ -34,4 +34,8 @@ export class Highlighter extends Component {
     }
 }
 
-Highlighter.propTypes = {code: PropTypes.string}
+Highlighter.propTypes = {
+    code: PropTypes.string,
+    format: PropTypes.oneOf(['json', 'ruby']),
+    title: PropTypes.string
+}

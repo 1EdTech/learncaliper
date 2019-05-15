@@ -8,11 +8,21 @@ export class Action extends Component {
             this.props.fetchCode({action: this.props.action.name});
             event.preventDefault();
         };
+        const sendEvent = (event) => {
+            this.props.sendEvent({action: this.props.action.name});
+            event.preventDefault();
+        };
 
         return <li>
-            <Button color="primary" onClick={fetchCode}>{this.props.action.name}</Button>
+            {this.props.action.name}:
+            <Button color="primary" onClick={fetchCode}>Show Examples</Button>
+            <Button color="secondary" onClick={sendEvent}>Send Event</Button>
         </li>
     }
 }
 
-Action.propTypes = {fetchCode: PropTypes.func}
+Action.propTypes = {
+    fetchCode: PropTypes.func,
+    sendEvent: PropTypes.func,
+    action: PropTypes.object
+}
