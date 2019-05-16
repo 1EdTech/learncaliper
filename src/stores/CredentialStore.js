@@ -6,10 +6,26 @@ var Fetchy = require("../util/Fetchy");
 class CredentialStore {
     constructor() {
         this.localCredentials = {endpointUrl: Fetchy.receiveApiUrl(), apiToken: Fetchy.sessionId()};
-        this.remoteCredentials = {endpointUrl: "", apiToken: ""};
+        this.remoteCredentials = CredentialStore.getRemoteCredsFromCookie();
         this.usingLocalCredentials = true;
 
         this.bindActions(CredentialActions);
+    }
+
+    static getRemoteCredsFromCookie(){
+        let url = Fetchy.getCookie("credurl")
+        let token = Fetchy.getCookie("credtoken")
+        return {endpointUrl: url, apiToken: token};
+    }
+
+    static setRemoteCredsToCookie(creds){
+        if(creds.endpointUrl && creds.apiToken){
+            Fetchy.setCookie("credurl", creds.endpointUrl, 0.5)
+            Fetchy.setCookie("credtoken", creds.apiToken, 0.5)
+        } else {
+            Fetchy.setCookie("credurl", '')
+            Fetchy.setCookie("credtoken", '')
+        }
     }
 
     static getCurrentCredentials() {
@@ -31,6 +47,7 @@ class CredentialStore {
 
     onUpdateRemoteCredentials(credentials) {
         this.remoteCredentials = credentials;
+        CredentialStore.setRemoteCredsToCookie(credentials);
     }
 
     onUpdateUsingLocalCredentials(val) {
