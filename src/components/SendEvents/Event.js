@@ -48,7 +48,7 @@ export class Event extends Component {
     render() {
         return <div>
             <h4>{this.props.event.name} (<Link href={this.props.event.docUrl} target="_blank">Documentation<LaunchIcon style={{fontSize: 'small'}}/></Link>)</h4>
-
+            <h5>Actions</h5>
                    <ul>
                        {this.props.event.actions.map((action, index) => {
                            return <Action action={action} sendEvent={this.sendEvent} fetchCode={this.fetchCode} key={index}/>
@@ -57,7 +57,7 @@ export class Event extends Component {
                    <Grid container spacing={2}>
                        <Highlighter title="Event Sent with Envelope" code={this.state.envelope} format="json"/>
                        <Highlighter title="Example Event JSON" code={this.state.json} format="json"/>
-                       <Highlighter title="Ruby code used to generate event." code={this.state.code} format="ruby"/>
+                       <Highlighter title="Ruby code used to generate this event." code={this.state.code} format="ruby"/>
                    </Grid>
                </div>
     }

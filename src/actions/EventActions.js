@@ -3,19 +3,35 @@ var Fetchy = require("../util/Fetchy");
 
 class EventActions {
 
-    event_url(action){
+    sendEventUrl(action) {
         return Fetchy.apiUrl("producer/send_event")
+    }
+
+    getEventsUrl() {
+        return Fetchy.apiUrl("consumer/events/" + Fetchy.sessionId())
     }
 
 
     sendEvent(credentials, action, callback) {
         return (dispatch) => {
-            Fetchy.post( this.event_url(action), {credentials: credentials, event: action}, 'text' )
+            Fetchy.post(this.sendEventUrl(action), {
+                credentials: credentials,
+                event: action
+            }, 'text')
                     .then((text) => {
                         callback(text)
                     });
         }
 
+    }
+
+    fetchEvents() {
+        return (dispatch) => {
+            Fetchy.get(this.getEventsUrl(), 'json')
+                    .then((json) => {
+                        dispatch(json)
+                    });
+        }
     }
 
 }

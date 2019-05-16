@@ -57,7 +57,7 @@ class Credentials extends Component {
             <AppBar position="static">
                 <Tabs value={tab} onChange={this.handleTabChange}>
                     <Tab label="Use Local Server"/>
-                    <Tab label="User Remote Server"/>
+                    <Tab label="Use Remote Server"/>
                 </Tabs>
             </AppBar>
             {this.state.usingLocalCredentials && <Local creds={this.state.localCredentials}/>}

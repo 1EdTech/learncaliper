@@ -39,7 +39,7 @@ class Fetchy {
 
 
     static receiveApiUrl() {
-        return this.apiBaseUrl() + "consumer/" + this.sessionId();
+        return this.apiBaseUrl() + "consumer/events/" + this.sessionId();
     }
 
 
