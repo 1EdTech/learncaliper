@@ -35,6 +35,7 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    redis (4.1.1)
     require_all (2.0.0)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
@@ -68,6 +69,7 @@ DEPENDENCIES
   ims_caliper!
   irb
   puma
+  redis
   shotgun
   sinatra
   sinatra-contrib

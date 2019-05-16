@@ -5,6 +5,8 @@ ruby '2.6.1'
 gem 'puma'
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'redis'
+
 git 'https://github.com/IMSGlobal/caliper-ruby.git', branch: 'develop' do
   gem 'ims_caliper'
 end

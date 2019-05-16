@@ -14,7 +14,8 @@
 <script type="text/javascript">
     <%
      js_settings = {
-      apiUrl: api_url
+      apiUrl: api_url,
+      sessionId: @session_id,
      }
   %>
     window.DEFAULT_SETTINGS = <%= js_settings.to_json %>;

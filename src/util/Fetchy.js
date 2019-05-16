@@ -1,5 +1,13 @@
 class Fetchy {
 
+    static sessionId() {
+        if (window.DEFAULT_SETTINGS && window.DEFAULT_SETTINGS.sessionId){
+            return window.DEFAULT_SETTINGS.sessionId
+        } else {
+            return "shared"
+        }
+    }
+
     static apiToken() {
         if (window.DEFAULT_SETTINGS && window.DEFAULT_SETTINGS.apiToken){
             return window.DEFAULT_SETTINGS.apiToken
@@ -8,11 +16,15 @@ class Fetchy {
         }
     }
 
+    static hostUrl(){
+        return location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
+    }
+
     static apiBaseUrl() {
         if (window.DEFAULT_SETTINGS && window.DEFAULT_SETTINGS.apiUrl) {
-            return window.DEFAULT_SETTINGS.apiUrl;
+            return this.hostUrl() + window.DEFAULT_SETTINGS.apiUrl;
         } else {
-            return "/api/";
+            return this.hostUrl() + "/api/";
         }
     }
 
@@ -22,7 +34,12 @@ class Fetchy {
 
 
     static eventSendApiBase() {
-        return apiBaseUrl() + "producer/";
+        return this.apiBaseUrl() + "producer/";
+    }
+
+
+    static receiveApiUrl() {
+        return this.apiBaseUrl() + "consumer/" + this.sessionId();
     }
 
 
