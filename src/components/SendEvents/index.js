@@ -8,7 +8,6 @@ import {Profiles} from "./Profiles"
 const Events = () => {
     return (
             <div>
-                <Header/>
                 <Credentials onlyLocal={false}/>
                 {/*<div>Context/User info</div>*/}
                 <Profiles/>

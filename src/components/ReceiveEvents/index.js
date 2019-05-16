@@ -7,7 +7,6 @@ import EventsList from "./EventsList"
 const Events = () => {
     return (
             <div>
-                <Header/>
                 <Credentials onlyLocal={true}/>
                 <EventsList />
             </div>

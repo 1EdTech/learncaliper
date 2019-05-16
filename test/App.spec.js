@@ -2,12 +2,12 @@ import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
 
-import App from '../src/components/App';
+import Welcome from '../src/components/Welcome';
 
-describe('Component: App', () => {
-  it('should render the App component', () => {
+describe('Component: Welcome', () => {
+  it('should render the Welcome component', () => {
     const wrapper = shallow(
-      <App name="World" />
+      <Welcome name="World" />
     );
 
     expect(wrapper.find('h1').text()).toEqual('Hello, World!');
