@@ -54,7 +54,7 @@ class Credentials extends Component {
     tabs() {
         let tab = this.state.usingLocalCredentials ? 0 : 1;
         return <div>
-            <AppBar position="static">
+            <AppBar position="static" style={{width: "max-content"}}>
                 <Tabs value={tab} onChange={this.handleTabChange}>
                     <Tab label="Use Local Server"/>
                     <Tab label="Use Remote Server"/>

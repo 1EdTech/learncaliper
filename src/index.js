@@ -5,16 +5,12 @@ import { Router, Link } from "@reach/router"
 import Welcome from './components/Welcome';
 import SendEvents from './components/SendEvents';
 import ReceiveEvents from './components/ReceiveEvents';
-import Header from "./components/Header"
 
 render(
-        <div>
-            <Header/>
             <Router>
-                <Welcome path="/"/>
-                <SendEvents path="/sendevents/:sessionId" />
-                <ReceiveEvents path="/receiveevents/:sessionId" />
-            </Router>
-        </div>, document.getElementById('root')
+                <Welcome path="/" page={0}/>
+                <SendEvents path="/sendevents/:sessionId" page={1} />
+                <ReceiveEvents path="/receiveevents/:sessionId" page={2} />
+            </Router>, document.getElementById('root')
 );
 

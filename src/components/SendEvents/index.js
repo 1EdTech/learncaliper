@@ -5,9 +5,10 @@ import Credentials from "../Credentials"
 import {Profiles} from "./Profiles"
 
 
-const Events = () => {
+const Events = (props) => {
     return (
             <div>
+                <Header page={props.page}/>
                 <Credentials onlyLocal={false}/>
                 {/*<div>Context/User info</div>*/}
                 <Profiles/>

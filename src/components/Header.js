@@ -8,9 +8,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import SendIcon from '@material-ui/icons/Send';
 import ReceivedIcon from '@material-ui/icons/CallReceived';
 
-const Header = () => {
-    const [value, setValue] = React.useState(0);
-
+const Header = (props) => {
     const urls ={
         0: "/",
         1: "/sendevents/" + Fetchy.sessionId(),
@@ -20,11 +18,8 @@ const Header = () => {
     return (
             <div>
                 <BottomNavigation
-                  value={value}
-                  onChange={(event, newValue) => {
-                    setValue(newValue);
-                    navigate(urls[newValue]);
-                  }}
+                  value={props.page}
+                  onChange={(event, newValue) => { navigate(urls[newValue]);}}
                   showLabels
                   style={{justifyContent: 'left'}}
                 >
