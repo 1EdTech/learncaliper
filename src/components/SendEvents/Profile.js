@@ -17,7 +17,7 @@ export class Profile extends Component {
 
     render() {
         return <div>
-            <ExpansionPanel TransitionProps={{unmountOnExit: true}}>
+            <ExpansionPanel defaultExpanded={true} TransitionProps={{unmountOnExit: true}}>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                     <h3><ListIcon style={{fontSize: 'xx-large', position: "relative", top: "10px", left: "-1px"}} />
                     {this.props.profile.name}
