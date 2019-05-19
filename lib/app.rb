@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'json'
 require 'redis'
+require 'uuid'
 
 require_relative  'models/models'
 require_relative  'events/events'
@@ -18,7 +19,7 @@ def api_url
 end
 
 def new_session_id
-  "oi"
+  UUID.new.generate
 end
 
 REDIS = Redis.new
