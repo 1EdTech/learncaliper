@@ -1,3 +1,3 @@
 
-require_relative 'content_page'
-require_relative 'user'
+
+Dir[File.join(__dir__, '*.rb')].each { |file| require file }
