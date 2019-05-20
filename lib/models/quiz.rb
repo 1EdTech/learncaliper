@@ -1,22 +1,18 @@
-class Quiz
+class Quiz < Model
 
-  attr_accessor :id, :name
-
-  def initialize(id=nil, name=nil)
-    @id = id || '42'
-    @name = name || 'Chapter 1 Quiz'
+  def model_name
+    "quizzes"
   end
 
-  def referencable_url
-    "https://imsglobal.org/quizzes/#{@id}"
+  def self.defaults
+    {
+            "id" => "42",
+            "name" => "Chapter 1 Quiz"
+    }
   end
 
-  def quiz_item
-    QuizItem.current_quiz_item
-  end
-
-  def self.current_quiz
-    Quiz.new
+  def quiz_item(opts={})
+    QuizItem.current(opts)
   end
 
 end

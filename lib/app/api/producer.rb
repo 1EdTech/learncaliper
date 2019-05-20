@@ -12,7 +12,7 @@ post '/api/producer/send_event' do
   method = Events::find_event(event["profile"], event["event"], event["action"])
   halt 404 unless method
 
-  caliper_event = Events.send(method)
+  caliper_event = Events.send(method, params)
 
   options = Caliper::Options.new
   sensor = Caliper::Sensor.new('https://example.edu/sensors/1', options)

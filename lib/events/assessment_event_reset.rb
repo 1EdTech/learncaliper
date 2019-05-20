@@ -12,12 +12,12 @@ module Events
     event.eventTime = Time.now.utc.iso8601
 
     # set the user by translating your user object to a Caliper Person
-    my_app_user = User.current_user
+    my_app_user = User.current(opts["user"])
     caliper_user = Caliper::Entities::Agent::Person.new(id: my_app_user.referencable_url, name: my_app_user.name)
     event.actor = caliper_user
 
     # set the object to target item, in this case a quiz
-    my_app_quiz = Quiz.current_quiz
+    my_app_quiz = Quiz.current(opts["quiz"])
     caliper_object = Caliper::Entities::Resource::Assessment.new(id: my_app_quiz.referencable_url, name: my_app_quiz.name)
     event.object = caliper_object
 

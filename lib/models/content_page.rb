@@ -1,18 +1,14 @@
-class ContentPage
+class ContentPage < Model
 
-  attr_accessor :id, :name
-
-  def initialize(id=nil, name=nil)
-    @id = id || '6'
-    @name = name || 'Chapter 1 Reading'
+  def model_name
+    "readings"
   end
 
-  def referencable_url
-    "https://imsglobal.org/readings/#{@id}"
-  end
-
-  def self.current_page
-    ContentPage.new
+  def self.defaults
+    {
+            "id" => "6",
+            "name" => "Chapter 1 Reading"
+    }
   end
 
 end

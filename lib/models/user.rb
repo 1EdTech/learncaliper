@@ -1,18 +1,14 @@
-class User
+class User < Model
 
-  attr_accessor :id, :name
-
-  def initialize(id=nil, name=nil)
-    @id = id || '4'
-    @name = name || 'Coquille'
+  def model_name
+    "users"
   end
 
-  def referencable_url
-    "https://imsglobal.org/users/#{@id}"
-  end
-
-  def self.current_user
-    User.new
+  def self.defaults
+    {
+            "id" => "4",
+            "name" => "Coquilla"
+    }
   end
 
 end
