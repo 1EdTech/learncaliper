@@ -1,5 +1,6 @@
 var alt = require('../alt');
 var Fetchy = require("../util/Fetchy");
+let CustomizeStore = require("../stores/CustomizeStore");
 
 class EventActions {
 
@@ -13,10 +14,15 @@ class EventActions {
 
 
     sendEvent(credentials, action, callback) {
+
         return (dispatch) => {
             Fetchy.post(this.sendEventUrl(action), {
                 credentials: credentials,
-                event: action
+                event: action,
+                user: CustomizeStore.getState().user,
+                quiz: CustomizeStore.getState().quiz,
+                page: CustomizeStore.getState().page,
+                item: CustomizeStore.getState().item
             }, 'text')
                     .then((text) => {
                         callback(text)

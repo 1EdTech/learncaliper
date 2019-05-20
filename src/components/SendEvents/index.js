@@ -3,6 +3,7 @@ import Header from '../Header';
 import '../../assets/styles/App.scss';
 import Credentials from "../Credentials"
 import {Profiles} from "./Profiles"
+import Customize from "../Customize"
 
 
 const Events = (props) => {
@@ -10,7 +11,7 @@ const Events = (props) => {
             <div>
                 <Header page={props.page}/>
                 <Credentials onlyLocal={false}/>
-                {/*<div>Context/User info</div>*/}
+                <Customize />
                 <Profiles/>
             </div>
     );

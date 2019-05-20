@@ -3,6 +3,17 @@ get '/api/producer/profiles' do
   File.read(File.join(File.dirname(__FILE__), "profiles.json"))
 end
 
+get '/api/producer/defaults' do
+  content_type :json
+
+  {
+          user: User.defaults,
+          page: ContentPage.defaults,
+          quiz: Quiz.defaults,
+          item: QuizItem.defaults
+  }.to_json
+end
+
 post '/api/producer/send_event' do
   content_type :json
   params = JSON.parse(request.body.read)

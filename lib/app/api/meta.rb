@@ -14,5 +14,5 @@ get '/api/meta/json/profile/:profile/event/:event/action/:action' do
   method = Events::find_event(params[:profile], params[:event], params[:action])
   halt 404 unless method
 
-  pretty_json(Events.send(method).to_json)
+  pretty_json(Events.send(method, params).to_json)
 end
