@@ -8,6 +8,11 @@ import {User} from "./User"
 import {Quiz} from "./Quiz"
 import {Item} from "./Item"
 import {Page} from "./Page"
+import ExpansionPanel from "@material-ui/core/ExpansionPanel"
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary"
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails"
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {Highlighter} from "../util/Highlighter"
 
 class Customize extends Component {
     constructor(props) {
@@ -70,10 +75,29 @@ class Customize extends Component {
         CustomizeActions.updatePage(newPage)
     }
 
+    styles() {
+        return {
+            expander: {
+                width: "max-content"
+            },
+            p:{
+                margin: "initial"
+            }
+        }
+    }
+
     render() {
+        const styles = this.styles();
+
         return <div>
-            <h2>Customize</h2>
-            {this.tabs()}
+            <ExpansionPanel style={styles.expander}>
+                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                    <h2>Customize Example Data</h2>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    {this.tabs()}
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
         </div>
     }
 

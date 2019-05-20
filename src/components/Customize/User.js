@@ -21,6 +21,7 @@ export class User extends Component {
                             margin="normal"
                             helperText="The User's ID (integer)"
                             variant="outlined"
+                            type="number"
                     />
                     <TextField
                             name="name"
