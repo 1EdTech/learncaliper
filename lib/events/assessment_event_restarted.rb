@@ -8,7 +8,7 @@ module Events
 
     # Create an event of the correct type and set the desired action
     event = Caliper::Events::AssessmentEvent.new
-    event.action = Caliper::Actions::STARTED
+    event.action = Caliper::Actions::RESTARTED
     event.eventTime = Time.now.utc.iso8601
 
     # set the user by translating your user object to a Caliper Person
