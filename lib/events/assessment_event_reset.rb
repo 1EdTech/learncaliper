@@ -4,7 +4,7 @@ module Events
 
   # Assessment Event docs: https://www.imsglobal.org/sites/default/files/caliper/v1p1/caliper-spec-v1p1/caliper-spec-v1p1.html#assessmentEvent
   # Required fields: id, type, actor, action, object, eventTime
-  def self.assessmentProfileAssessmentEventReset
+  def self.assessmentProfileAssessmentEventReset(opts={})
 
     # Create an event of the correct type and set the desired action
     event = Caliper::Events::AssessmentEvent.new
